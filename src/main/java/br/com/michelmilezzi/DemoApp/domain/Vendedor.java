@@ -1,38 +1,23 @@
 package br.com.michelmilezzi.DemoApp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.math.BigDecimal;
 
-@Entity
 public class Vendedor {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
+
     private String nome;
-    
-    private Double salario;
-    
-	public Vendedor(String nome, Double salario) {
-		super();
-		this.nome = nome;
-		this.salario = salario;
-	}
+    private BigDecimal salario;
 
-	public Long getId() {
-		return id;
-	}
+    public Vendedor(String nome, BigDecimal salario) {
+        this.nome = nome;
+        this.salario = salario;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public Double getSalario() {
-		return salario;
-	}
-    
-    
+    public BigDecimal getSalario() {
+        return salario;
+    }
+
 }

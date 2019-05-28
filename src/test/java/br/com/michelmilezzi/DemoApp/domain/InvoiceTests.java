@@ -1,8 +1,6 @@
-package br.com.michelmilezzi.DemoApp.model;
+package br.com.michelmilezzi.DemoApp.domain;
 
 
-import br.com.michelmilezzi.DemoApp.domain.Invoice;
-import br.com.michelmilezzi.DemoApp.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,11 +18,13 @@ public class InvoiceTests {
     @Test
     public void calculaTotalTests() {
         Invoice invoice = new Invoice(LocalDateTime.now());
+
         invoice.addItem(new Product("Product1"), 5L, BigDecimal.ONE);
         invoice.addItem(new Product("Product2"), 10L, BigDecimal.ONE);
         invoice.addItem(new Product("Product3"), 15L, BigDecimal.ONE);
 
-        assertThat(invoice.getTotal()).isEqualByComparingTo(BigDecimal.valueOf(30));
+        assertThat(invoice.getTotal())
+                .isEqualByComparingTo(BigDecimal.valueOf(30));
     }
 
 }
